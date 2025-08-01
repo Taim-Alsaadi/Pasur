@@ -1,0 +1,48 @@
+
+ISSUES:
+  In Pasur, if you play a card that CAN capture something it MUST capture something 
+    Need to check table for possibile capture based on cards BEFORE displaying push to table
+  Score not working properly
+
+Soon:
+  Table cards all in one line gets too long, find way to next line every 4 cards
+  Work on multiple rounds
+  Way to cancel new game creation
+  Put repeating code in functions
+  show more game stats on end
+  waiting for player event still not implemented in client
+
+Testing:
+  Test if sur activate affects getting surs
+
+Later:
+  Change from order 1 and 2 to boolean dealer? maybe
+  Make one player the host?
+  if you take too long on name prompt user disconnects????
+  Change the name prompt to a custom one
+  How to handle fail to connect?
+  add global naming system (cookies)
+  decide game winning score on game creation
+  add burning effect to jack placed on bare table
+
+
+Need to test:
+  Enable SUR 5 point bonus 
+  The player who captures the final card also captures the remaining cards on the table. 
+  Remove jack from table if it was dealt there on starting deck
+
+
+Maybe:
+  ADD ABILITY FOR MORE THAN TWO PLAYERS
+
+
+
+DONE:
+  Leave card on table if nothing can be captured
+  What if you add a card into play that can never proceed? Must add a safe way back
+  Work on handing out new decks
+
+
+Rules for this game (to be made into options)
+  Winning is 63 points
+  No sur after 50 points

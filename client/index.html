@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pasur</title>
+  <!-- <link rel="stylesheet" href="style.css">  -->
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 0px;
+    }
+
+    .room {
+      margin: 0px 0;
+    }
+
+    button {
+      margin-left: 0px;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      /* lighten greying out */
+      pointer-events: none;
+      /* still prevents clicks */
+      filter: none;
+      /* in case the browser applies other filters */
+    }
+
+    #mainMenu {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .roomList {
+      margin-top: 20px;
+      display: none;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /*For Game screen*/
+    #game {
+      display: none;
+      text-align: center;
+      flex-direction: column;
+      justify-content: space-between;
+      /* pushes items to top, center, bottom */
+      height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    #oppName,
+    #oppCards,
+    #tableCards,
+    #myCards,
+    #myName,
+    #myPlay,
+    #oppPlay {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      /* centers items horizontally */
+      margin: 10px 0;
+      /* space between elements */
+      gap: 2px;
+    }
+
+
+    #oppName,
+    #myName {
+      font-weight: bold;
+    }
+
+    #tableCards {
+      margin: 40px 0;
+    }
+
+    /*For Game screen*/
+  </style>
+</head>
+
+<body>
+  <!-- <div id="log">Connecting…</div> -->
+
+  <div id="mainMenu">
+    <h1>Pasur</h1>
+    <h2>Main Menu</h2>
+    <button id="startBtn">Start</button>
+  </div>
+
+  <div id="roomList" class="roomList">
+    <h3>Available Rooms</h3>
+    <button id="newGameBtn">Create New Game</button>
+    <button id="mainMenuBtnRmLst">Main Menu</button>
+    <div id="rooms"></div> <!-- filled in js -->
+  </div>
+
+
+  <div id="lobby" class="roomList">
+    <h2>Lobby</h2>
+    <h3>Players:</h3>
+    <div id="playersList"></div>
+    <button id="startGameBtn" style="display : none;">Start Game</button>
+  </div>
+
+  <div id="game">
+    <h1>PASUR</h1>
+    <div id="oppName"></div>
+    <div id="oppSurs"></div>
+    <div id="oppCards"></div>
+    <div id="oppPlay"></div>
+    <div id="tableCards"></div>
+    <div id="myPlay"></div>
+    <button id="toTableBtn" disabled>Push to Table</button>
+    <button id="collectBtn" disabled>Collect</button>
+    <div id="myCards"></div>
+    <div id="mySurs"></div>
+    <div id="myName"></div>
+  </div>
+
+  <div id="endScreen" class="roomList">
+    <div id="winner"></div>
+    <button id="mainMenuBtnEndScr">Main Menu</button>
+  </div>
+
+  <!-- Socket.io client bundle -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
