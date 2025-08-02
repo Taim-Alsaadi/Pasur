@@ -186,14 +186,13 @@ socket.on('game-update', (mySursServ, myCardsServ, myPlayServ, tableCardsServ, o
       const cardBack = document.createElement('img');
       cardBack.src = 'cards_png/cardback.jpg';
       cardBack.alt = "cardback";
-      cardBack.style.width = '60px';
-      cardBack.style.height = 'auto';
+      cardBack.classList.add('card', 'noclick');
       oppCards.appendChild(cardBack);
     }
   } else {
     // keep consistent space to avoid game screen shifting around too much during plays
     const spacer = document.createElement('div');
-    spacer.style.height = '60px';
+    spacer.style.height = 'clamp(60px, 12vw, 120px)';
     oppCards.appendChild(spacer);
   }
 
@@ -207,15 +206,14 @@ socket.on('game-update', (mySursServ, myCardsServ, myPlayServ, tableCardsServ, o
         const cardImg = document.createElement('img');
         cardImg.src = `cards_png/${card}.png`;
         cardImg.alt = cardToString(card);
-        cardImg.style.width = '60px';
-        cardImg.style.height = 'auto';
+        cardImg.classList.add('card', 'noclick');
         oppPlay.appendChild(cardImg);
       });
     }
   } else {
     // keep consistent space to avoid game screen shifting around too much during plays
     const spacer = document.createElement('div');
-    spacer.style.height = '60px';
+    spacer.style.height = 'clamp(60px, 12vw, 120px)';
     oppPlay.appendChild(spacer);
   }
 
@@ -229,8 +227,7 @@ socket.on('game-update', (mySursServ, myCardsServ, myPlayServ, tableCardsServ, o
       const cardImg = document.createElement('img');
       cardImg.src = `cards_png/${card}.png`;
       cardImg.alt = cardToString(card);
-      cardImg.style.width = '60px';
-      cardImg.style.height = 'auto';
+      cardImg.classList.add('card', 'noclick');
 
       // Put image inside the button
       const button = document.createElement('button');
@@ -245,6 +242,7 @@ socket.on('game-update', (mySursServ, myCardsServ, myPlayServ, tableCardsServ, o
       // enable table cards once its my turn and a card is put into the play area
       if (isMyTurn && myPlayServ && myPlayServ.length > 0) {
         button.disabled = false;
+        cardImg.classList.remove('noclick');
       } else {
         button.disabled = true;
       }
@@ -259,7 +257,7 @@ socket.on('game-update', (mySursServ, myCardsServ, myPlayServ, tableCardsServ, o
   } else {
     // keep consistent space to avoid game screen shifting around too much during plays
     const spacer = document.createElement('div');
-    spacer.style.height = '60px';
+    spacer.style.height = 'clamp(60px, 12vw, 120px)';
     tableCards.appendChild(spacer);
   }
 
@@ -273,8 +271,7 @@ socket.on('game-update', (mySursServ, myCardsServ, myPlayServ, tableCardsServ, o
       const cardImg = document.createElement('img');
       cardImg.src = `cards_png/${card}.png`;
       cardImg.alt = cardToString(card);
-      cardImg.style.width = '60px';
-      cardImg.style.height = 'auto';
+      cardImg.classList.add('card', 'noclick');
 
       /*
       //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -323,6 +320,8 @@ socket.on('game-update', (mySursServ, myCardsServ, myPlayServ, tableCardsServ, o
         console.log("Cards num in play: " + myPlayServ.length);
         if (myPlayServ.length > 1) {
           button.disabled = true;
+        } else {
+          cardImg.classList.remove('noclick');
         }
 
         // Put button inside the div
@@ -350,7 +349,7 @@ socket.on('game-update', (mySursServ, myCardsServ, myPlayServ, tableCardsServ, o
   } else {
     // keep consistent space to avoid game screen shifting around too much during plays
     const spacer = document.createElement('div');
-    spacer.style.height = '60px';
+    spacer.style.height = 'clamp(60px, 12vw, 120px)';
     myPlay.appendChild(spacer);
   }
 
@@ -364,8 +363,7 @@ socket.on('game-update', (mySursServ, myCardsServ, myPlayServ, tableCardsServ, o
       const cardImg = document.createElement('img');
       cardImg.src = `cards_png/${card}.png`;
       cardImg.alt = card;
-      cardImg.style.width = '60px';
-      cardImg.style.height = 'auto';
+      cardImg.classList.add('card', 'noclick');
 
       // Put image inside the button
       const button = document.createElement('button');
@@ -379,6 +377,8 @@ socket.on('game-update', (mySursServ, myCardsServ, myPlayServ, tableCardsServ, o
 
       if (!isMyTurn || (myPlayServ && myPlayServ.length > 0)) {
         button.disabled = true;
+      } else {
+        cardImg.classList.remove('noclick');
       }
 
       // Put button inside the div
@@ -392,7 +392,7 @@ socket.on('game-update', (mySursServ, myCardsServ, myPlayServ, tableCardsServ, o
   } else {
     // keep consistent space to avoid game screen shifting around too much during plays
     const spacer = document.createElement('div');
-    spacer.style.height = '60px';
+    spacer.style.height = 'clamp(60px, 12vw, 120px)';
     myCards.appendChild(spacer);
   }
 

@@ -3,12 +3,20 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pasur</title>
   <!-- <link rel="stylesheet" href="style.css">  -->
   <style>
     body {
-      font-family: sans-serif;
-      padding: 0px;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: rgb(252, 248, 234);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
     .room {
@@ -37,10 +45,11 @@
     }
 
     .roomList {
-      margin-top: 20px;
+      margin-top: 10vh;
       display: none;
       justify-content: center;
       flex-direction: column;
+      gap: 3vh;
       align-items: center;
     }
 
@@ -52,7 +61,8 @@
       justify-content: space-between;
       /* pushes items to top, center, bottom */
       height: 100vh;
-      padding: 20px;
+      max-width: 1000px;
+      padding: 2vw;
       box-sizing: border-box;
     }
 
@@ -66,10 +76,9 @@
       text-align: center;
       display: flex;
       justify-content: center;
-      /* centers items horizontally */
-      margin: 10px 0;
-      /* space between elements */
-      gap: 2px;
+      flex-wrap: wrap;
+      gap: 1vw;
+      margin: 1vh 0;
     }
 
 
@@ -80,6 +89,34 @@
 
     #tableCards {
       margin: 40px 0;
+    }
+
+    .card {
+      width: clamp(40px, 8vw, 80px);
+      height: clamp(60px, 12vw, 120px);
+      background-color: white;
+      border-radius: 8px;
+      border: 2px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: clamp(12px, 3vw, 24px);
+      cursor: pointer;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card.noclick {
+      transition: none;
+    }
+
+    .card.noclick:hover {
+      transform: none;
+      cursor: default;
     }
 
     /*For Game screen*/

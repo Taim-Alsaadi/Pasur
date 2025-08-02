@@ -6,23 +6,24 @@ ISSUES:
 
 Soon:
   Table cards all in one line gets too long, find way to next line every 4 cards
-  Work on multiple rounds
   Way to cancel new game creation
   Put repeating code in functions
   show more game stats on end
+  Should directly inform user of new round start
   waiting for player event still not implemented in client
 
 Testing:
   Test if sur activate affects getting surs
 
 Later:
+  Work on multiple games (rn have to start new room each time)
   Change from order 1 and 2 to boolean dealer? maybe
   Make one player the host?
   if you take too long on name prompt user disconnects????
   Change the name prompt to a custom one
   How to handle fail to connect?
   add global naming system (cookies)
-  decide game winning score on game creation
+  host decide game winning score on game creation
   add burning effect to jack placed on bare table
 
 
